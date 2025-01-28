@@ -1,44 +1,16 @@
-// const express = require('express');
-// const dotenv = require('dotenv');
-// const cors = require('cors');
-// const connectDB = require('./config/db');
-
-// // Load environment variables
-// dotenv.config();
-
-// // Connect to MongoDB
-// connectDB();
-
-// const app = express();
-
-// // Middleware
-// app.use(cors());
-// app.use(express.json()); // For parsing JSON data
-
-// // Sample route for testing
-// app.get('/', (req, res) => {
-//   res.send('API is running...');
-// });
-
-// // Port
-// const PORT = process.env.PORT || 5000;
-
-// // Start the server
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
-
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const Book = require('./models/Book'); // Make sure this path is correct
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
+
+// Middleware to enable CORS
+app.use(cors()); // This enables CORS for all domains by default
 
 // Middleware to parse incoming requests with JSON payloads
 app.use(express.json());
